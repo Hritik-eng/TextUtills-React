@@ -54,7 +54,7 @@ export default function TextForm(props) {
   return (
     <>
       <div className="container"  style={{color: props.mode === "dark" ? "white" : "#042743"}}>
-        <h1>{props.heading}</h1>
+        <h2>{props.heading}</h2>
         <div className="mb-3">
           <textarea
             className="form-control border-4"
@@ -98,11 +98,11 @@ export default function TextForm(props) {
       <div className="container my-3" style={{color: props.mode === "dark" ? "white" : "#042743"}}>
         <h1>Your text summaary</h1>
         <p>
-          <b>{text.split(" ").length - 1}</b> words and <b>{text.length}</b>{" "}
+          <b>{text.split(" ").filter((e)=>{return e.length!==0}).length}</b> words and <b>{text.length}</b>{" "}
           characters
         </p>
         <p>
-          <b>{0.008 * text.split(" ").length}</b> minutes to read
+          <b>{0.008 * text.split(" ").filter((e)=>{return e.length!==0}).length}</b> minutes to read
         </p>
         <h1>Preview</h1>
         <p>{text.length > 0 ? text:"Enter something in the textbox to preview to here:"}</p>
